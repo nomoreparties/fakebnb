@@ -1,0 +1,12 @@
+<section class="container">
+  <h1>New Home:</h1>
+
+  <%= form_for @home do |form| %>
+    <%= form.label :"Name:" %>
+    <%= form.text_field :name %> <br>
+    <%= form.label :"Price per night(RM):" %>
+    <%= form.text_field :rent_daily %> <br>
+    <%= form.hidden_field :user_id, :value => "#{current_user.id}"  %> <br>
+    <%= form.submit %> <br>
+  <% end %>
+</section>

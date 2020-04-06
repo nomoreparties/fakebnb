@@ -1,0 +1,15 @@
+<h1><%= @home.name %></h1>
+
+<h2>Rent per night is: RM<%= @home.rent_daily%></h2>
+
+<%= form_for @home do |form| %>
+  <%= form.label :"How many nights?:" %>
+  <%= form.text_field :days %> <br>
+  <%= form.submit %> <br>
+<% end %>
+
+<%= @home.days %>
+
+<% if @home.days =! nil %>
+  <p>Total rent will be: RM<%= @home.days %></p>
+<% end %>

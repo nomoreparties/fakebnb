@@ -1,0 +1,7 @@
+<h1>Places for Rent:</h1>
+
+  <% @homes.each do |home| %>
+  <ul>
+    <li><%= link_to home.name, home_path(home) %>, owned by <%= home.user.email %></li>
+  </ul>
+  <% end %>
