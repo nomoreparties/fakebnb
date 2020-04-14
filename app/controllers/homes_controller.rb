@@ -20,11 +20,12 @@ class HomesController < ActionController::Base
 
   def show
     @home = Home.find(params[:id])
+    @booking = Booking.new
   end
 
   def update
     @home = Home.find(params[:id])
-    @update_home = @home.update(home_params)
+    @home.update(home_params)
 
     render :show
   end

@@ -2,14 +2,14 @@
 
 <h2>Rent per night is: RM<%= @home.rent_daily%></h2>
 
-<%= form_for @home do |form| %>
+<%= form_for @booking do |form| %>
   <%= form.label :"How many nights?:" %>
   <%= form.text_field :days %> <br>
+  <%= form.hidden_field :user_id, :value => "#{current_user.id}"  %> <br>
+  <%= form.hidden_field :home_id, :value => "#{@home.id}"  %> <br>
   <%= form.submit %> <br>
 <% end %>
 
-<%= @home.days %>
-
-<% if @home.days =! nil %>
-  <p>Total rent will be: RM<%= @home.days %></p>
+<% if @booking.days != nil %>
+  <p>Total rent will be: RM<%= @booking.days * @home.rent_daily %></p>
 <% end %>
