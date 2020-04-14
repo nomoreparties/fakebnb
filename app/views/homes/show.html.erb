@@ -9,7 +9,3 @@
   <%= form.hidden_field :home_id, :value => "#{@home.id}"  %> <br>
   <%= form.submit %> <br>
 <% end %>
-
-<% if @booking.days != nil %>
-  <p>Total rent will be: RM<%= @booking.days * @home.rent_daily %></p>
-<% end %>

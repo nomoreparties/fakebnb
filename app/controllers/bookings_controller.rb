@@ -3,10 +3,15 @@ class BookingsController < ActionController::Base
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to home_path(@booking.home_id)
+      redirect_to booking_path(@booking.id)
     else
-      render :new
+      redirect_to home_path(@booking.home_id)
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @home = Home.find_by id: "#{@booking.home_id}"
   end
 
   private
